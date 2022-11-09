@@ -17,8 +17,10 @@ while (seleccion != "si" && seleccion != "no"){
 
 if (seleccion == "si"){
 alert (" a continuación nuestra lista de productos")
-let todoslosProductos = producto.map
+let todoslosProductos = productos.map
 ((producto) => producto.nombre + " " + producto.precio + "$");
+alert(todoslosProductos.join(" - "))
+} else if (seleccion == "no"){
 alert("gracias por venir, hasta pronto!")
 }
 
@@ -59,7 +61,7 @@ console.log(carrito)
   seleccion = prompt("desea seguir comprando?")
 
   while(seleccion === "no"){
-    alert("gracias por la compra! hasta pronto")
+    alert("finalizar compra")
     carrito.forEach((carritoFinal) => {
       console.log(`producto: ${carritoFinal.producto}, unidades: ${carritoFinal.unidades}, total a pagar por producto ${carritoFinal.unidades * carritoFinal.precio}`)
     })
@@ -67,3 +69,8 @@ console.log(carrito)
   }
 }
 
+const total = carrito.reduce((acc, el) => acc + el.precio * el.unidades, 0)
+alert(`el total a pagar por su compra es: ${total} `)
+
+alert ("Muchas Gracias por su Compra!hasta pronto!")
+ 
